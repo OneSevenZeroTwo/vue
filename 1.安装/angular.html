@@ -14,7 +14,9 @@
 	<script>
 		var app = angular.module("ngApp",[]);
 		app.controller("indexCtrl",function($scope){
-			$scope.name = "abc"
+			$scope.name = "abc";
+			$scope.ok = function(){};
+			$scope.ok();
 		})
 	</script>
 </html>
