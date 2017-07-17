@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		//构造器
+		new Vue({
+			//element节点 querySelector
+ 			el:"#demo",
+ 			//需要绑定的数据 $scope
+ 			data:{
+ 				name:"Hello World"
+ 			}
+		})
+	</script>
+</html>

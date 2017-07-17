@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+			<p ng-bind="name"></p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("ngApp",[]);
+		app.controller("indexCtrl",function($scope){
+			$scope.name = "abc"
+		})
+	</script>
+</html>
