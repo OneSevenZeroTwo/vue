@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div ng-controller="indexCtrl">
-			<p>{{name}}</p>
+			<p>{{name|html}}</p>
 			<p ng-bind="name"></p>
 		</div>
 	</body>
@@ -17,6 +17,18 @@
 			$scope.name = "abc";
 			$scope.ok = function(){};
 			$scope.ok();
+		})
+		app.filter("html",function(){
+			return function(input){
+				return input
+			}
+		})
+//		ng-touch
+		app.directive("ngTouch",function(){
+			return {
+				link:function(scope,ele,attr){
+				}
+			}
 		})
 	</script>
 </html>
