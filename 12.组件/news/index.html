@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/weui.css" />
+	<link rel="stylesheet" href="../css/swiper.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<body>
+		<div id="demo"></div>
+	</body>
+	<script src="../js/vue2.js"></script>
+	<script src="../js/swiper.js"></script>
+	<script src="../components/xheader.js"></script>
+	<script src="../components/xsearch.js"></script>
+	<script src="../components/xswiper.js"></script>
+	<script>
+		new Vue({
+			el:"#demo",
+			template:`
+				<div>
+					<xheader></xheader>
+					<xsearch></xsearch>
+					<xswiper></xswiper>
+				</div>
+			`
+		})
+	</script>
+</html>
