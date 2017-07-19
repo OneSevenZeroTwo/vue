@@ -31,10 +31,10 @@ Vue.component("xlist", {
 		}
 	},
 	computed: {
-		search(){
+		search() {
 			return this.$store.state.count
 		},
-		news(){
+		news() {
 			return this.$store.state.news
 		}
 	},

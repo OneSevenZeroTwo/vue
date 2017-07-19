@@ -23,8 +23,8 @@ Vue.component("xswiper", {
 			paginationClickable: true
 		});
 	},
-	computed:{
-		news(){
+	computed: {
+		news() {
 			return this.$store.state.news
 		}
 	}
