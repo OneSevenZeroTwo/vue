@@ -4,7 +4,7 @@ Vue.component("xsearch", {
 	<form class="weui-search-bar__form">
 		<div class="weui-search-bar__box">
 			<i class="weui-icon-search"></i>
-			<input v-model="searchTitle" type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
+			<input v-model="searchTitle" @keyup="doSearch" type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
 			<a v-focuss="{fn:clearSearchTitle}" href="javascript:" class="weui-icon-clear" id="search_clear"></a>
 		</div>
 		<label @click="changeSearchBar()" for="search_input" class="weui-search-bar__label" id="search_text">
@@ -42,11 +42,22 @@ Vue.component("xsearch", {
 	},
 	methods: {
 		//封装清空输入框的方法
-		clearSearchTitle: function() {
+		clearSearchTitle() {
 			this.searchTitle = "";
 		},
-		changeSearchBar: function(){
+		changeSearchBar(){
 			this.isShowSearchBar = true
+		},
+		doSearch(){
+			//暴力修改状态
+			//this.$store.state.search = this.searchTitle;
+			//提交修改触发mutations
+			//this.$store.commit("setCount",this.searchTitle)
+			//提交修改触发actions
+			this.$store.dispatch('setChange',this.searchTitle)
 		}
+	},
+	mounted(){
+		console.log(this.$store.state.count)
 	}
 })

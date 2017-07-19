@@ -42,3 +42,11 @@ header {
 .swiper-slide img {
 	width: 100%;
 }
+
+.weui-panel__ft {
+	margin-bottom: 50px;
+}
+
+.weui-loadmore {
+	margin-bottom: 70px;
+}

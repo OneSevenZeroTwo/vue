@@ -2,7 +2,7 @@ Vue.component("xswiper", {
 	template: `
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="../images/1.jpg" /></div>
+				<div class="swiper-slide"><img :src="news?news[1].author.avatar_url:'../images/1.jpg'" /></div>
 				<div class="swiper-slide"><img src="../images/1.jpg" /></div>
 				<div class="swiper-slide">Slide 3</div>
 				<div class="swiper-slide">Slide 4</div>
@@ -22,5 +22,10 @@ Vue.component("xswiper", {
 			pagination: '.swiper-pagination',
 			paginationClickable: true
 		});
+	},
+	computed:{
+		news(){
+			return this.$store.state.news
+		}
 	}
 })

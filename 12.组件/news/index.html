@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -7,24 +8,87 @@
 	<link rel="stylesheet" href="../css/weui.css" />
 	<link rel="stylesheet" href="../css/swiper.css" />
 	<link rel="stylesheet" href="../css/index.css" />
+
 	<body>
 		<div id="demo"></div>
 	</body>
 	<script src="../js/vue2.js"></script>
+	<script src="../js/vuex.js"></script>
+	<script src="../js/vue-resource.js"></script>
 	<script src="../js/swiper.js"></script>
 	<script src="../components/xheader.js"></script>
 	<script src="../components/xsearch.js"></script>
 	<script src="../components/xswiper.js"></script>
+	<script src="../components/xlist.js"></script>
 	<script>
+		//新建一个状态管理
+		var store = new Vuex.Store({
+			//定义一个状态
+			//所有组件的状态，也就是数据源
+			state: {
+				count: 1,
+				title: "标题",
+				search: "",
+				news:null
+			},
+			getters: {
+				getCount(state) {
+					//处理数据
+					return state.count + "ed"
+				}
+			},
+			//分发状态
+			mutations: {
+				setCount(state, data) {
+					state.count = data
+
+				},
+				settitle(state, data) {
+					state.title = data
+				},
+				setNews(state) {
+					console.log(this.Vue.http)
+					this.Vue.http.get("https://cnodejs.org/api/v1//topics", {
+						params: {
+							//page: scope.page++,
+							tab: "ask",
+							limit: 10
+						}
+					}).then((data) => {
+						console.log(data)
+						state.news = data.body.data
+					}, (err) => {
+
+					})
+				}
+			},
+			//action就是触发mutations
+			actions: {
+				setChange(context, data) {
+					context.commit('setCount', data)
+					context.commit('settitle', data)
+				},
+				setNews(context, data) {
+					context.commit('setNews')
+				}
+			}
+		})
+
 		new Vue({
-			el:"#demo",
-			template:`
+			el: "#demo",
+			template: `
 				<div>
 					<xheader></xheader>
 					<xsearch></xsearch>
 					<xswiper></xswiper>
+					<xlist></xlist>
 				</div>
-			`
+			`,
+			store,
+			mounted() {
+				console.log(this.$store)
+			}
 		})
 	</script>
+
 </html>
