@@ -3,7 +3,7 @@ Vue.component("xlist", {
 		<div class="weui-panel weui-panel_access">
 			<div class="weui-panel__hd">图文组合列表{{search}}</div>
 			<div class="weui-panel__bd">
-				<a href="javascript:void(0);" v-for="n in news" class="weui-media-box weui-media-box_appmsg">
+				<a :href="'#/detail/'+index" v-for="(n,index) in news" class="weui-media-box weui-media-box_appmsg">
 					<xcontentheader :imgurl="n.author.avatar_url"></xcontentheader>
 					<div class="weui-media-box__bd">
 						<h4 class="weui-media-box__title">{{n.title}}</h4>
@@ -59,9 +59,16 @@ Vue.component("xlist", {
 			props: ["imgurl"],
 			template: `
 				<div class="weui-media-box__hd">
-					<img class="weui-media-box__thumb" :src="imgurl" alt="">
+					<img @click="showGallery(imgurl)" class="weui-media-box__thumb" :src="imgurl" alt="">
 				</div>
 			`,
+			methods: {
+				showGallery(imgurl) {
+					console.log(this.$store.state);
+					this.$store.state.imgUrl = imgurl;
+					this.$store.state.isShowGallery = true;
+				}
+			}
 		},
 		xcontent: {
 			props: ["message"],

@@ -50,3 +50,16 @@ header {
 .weui-loadmore {
 	margin-bottom: 70px;
 }
+
+.weui-gallery{
+	animation: scalee 0.5s ease;
+}
+
+@keyframes scalee{
+	from{
+		transform: scale(0);
+	}
+	to{
+		transform: scale(1);
+	}
+}
