@@ -1,7 +1,7 @@
 Vue.component("xlist", {
 	template: `
 		<div class="weui-panel weui-panel_access">
-			<div class="weui-panel__hd">图文组合列表{{search}}</div>
+			<div @click="changeDirection()" class="weui-panel__hd">图文组合列表{{search}}</div>
 			<div class="weui-panel__bd">
 				<a :href="'#/detail/'+index" v-for="(n,index) in news" class="weui-media-box weui-media-box_appmsg">
 					<xcontentheader :imgurl="n.author.avatar_url"></xcontentheader>
@@ -41,6 +41,9 @@ Vue.component("xlist", {
 	methods: {
 		loadMore() {
 			this.$store.dispatch("setNews")
+		},
+		changeDirection(){
+			this.$store.state.direction = "right"
 		}
 	},
 	mounted() {

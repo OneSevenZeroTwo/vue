@@ -23,6 +23,7 @@
 	<script src="../components/xlist.js"></script>
 	<script src="../components/xgallery.js"></script>
 	<script src="../components/xdetail.js"></script>
+	<script src="../components/xsilde.js"></script>
 	<script>
 		/*var index = {
 							template: `
@@ -52,6 +53,7 @@
 								<xswiper></xswiper>
 								<xlist></xlist>
 								<xgallery></xgallery>
+								<xsilde></xsilde>
 							</div>
 						`
 					}
@@ -80,7 +82,8 @@
 				search: "",
 				news: null,
 				imgUrl: null,
-				isShowGallery: false
+				isShowGallery: false,
+				direction:"left"
 			},
 			getters: {
 				getCount(state) {
