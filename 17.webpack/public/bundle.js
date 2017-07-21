@@ -87,7 +87,6 @@ console.log("abc");*/
 
 //引入weui
 /*require("weui");
-
 var Vue = require("vue");
 //import Vue from "vue";
 console.log(Vue);

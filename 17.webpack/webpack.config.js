@@ -24,9 +24,14 @@ module.exports = {
 		}, {
 			test: /\.(jpg|png|jpeg|gif)$/,
 			loader: "url-loader"
-		},{
-			test:/\.js$/,
-			loader:"babel-loader"
+		}, {
+			//ES6^=>ES5
+			test: /\.js$/,
+			loader: "babel-loader"
+		}, {
+			//vue=>js
+			test: /\.vue$/,
+			loader: "vue-loader"
 		}]
 	},
 	//加这一句
@@ -34,5 +39,11 @@ module.exports = {
 		alias: {
 			'vue': 'vue/dist/vue.js'
 		}
+	},
+	//webpackd的服务器
+	devServer: {
+		contentBase: "./public", //服务器需要加载的文件夹目录
+		inline: true, //实时更新
+		port:12345,
 	}
 }
