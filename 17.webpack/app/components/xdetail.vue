@@ -1,7 +1,9 @@
 <!--HTML-->
 <template>
 	<div>
-		<p>asjdasdhkajsd</p>
+		<p>123
+			<span>456</span>
+		</p>
 	</div>
 </template>
 <!--JS-->
@@ -16,10 +18,13 @@
 	}
 </script>
 <!--CSS-->
-<style scoped lang="sass">
-	$size = 20px;
-	p {
+<style scoped lang="scss">
+	$size: 20px;
+	p{
 		color: red;
 		font-size: $size;
+		span{
+			color: green;
+		}
 	}
 </style>

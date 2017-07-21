@@ -32,6 +32,14 @@ module.exports = {
 			//vue=>js
 			test: /\.vue$/,
 			loader: "vue-loader"
+		}, {
+			//vue=>js
+			test: /\.scss$/,
+			loader: "sass-loader"
+		}, {
+			//vue=>js
+			test: /\.less$/,
+			loader: "less-loader"
 		}]
 	},
 	//加这一句
